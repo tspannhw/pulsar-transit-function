@@ -1,7 +1,6 @@
-package dev.pulsarfunction.transit;
+package dev.pulsarfunction.transit.models;
 
 import java.io.Serializable;
-import java.util.Map;
 import java.util.StringJoiner;
 
 /**
@@ -12,8 +11,6 @@ import java.util.StringJoiner;
 
  */
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import java.util.StringJoiner;
 
 /**
  *  row['id'] = str(msg_id)

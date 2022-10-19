@@ -1,1 +1,1 @@
-bin/pulsar-admin functions status --name SentimentAnalysis
+bin/pulsar-admin functions status --name TransitParser
