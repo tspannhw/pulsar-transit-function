@@ -11,20 +11,14 @@
 
 ````
 
-bin/pulsar-admin topics create persistent://public/default/transcom
-
-bin/pulsar-admin topics create persistent://public/default/chatresult
-
-bin/pulsar-admin functions delete --name SentimentAnalysis --namespace default --tenant public
-
-bin/pulsar-admin functions create --auto-ack true --jar sentiment-1.0.jar --classname "dev.pulsarfunction.sentiment.SentimentFunction" --dead-letter-topic "persistent://public/default/chatdead" --inputs "persistent://public/default/chat" --log-topic "persistent://public/default/sentimentlog" --name SentimentAnalysis --namespace default  --tenant public --max-message-retries 5
-
-bin/pulsar-client consume "persistent://public/default/chatresult" -s "fnchatresultreader" -n 0
-
-bin/pulsar-client consume "persistent://public/default/chat" -s "fnchatreader" -n 0
+bin/pulsar-admin functions stop --name TransitParser --namespace default --tenant public
+bin/pulsar-admin functions delete --name TransitParser --namespace default --tenant public
+bin/pulsar-admin functions create --auto-ack true --jar /opt/demo/java/pulsar-transit-function/target/transit-1.0.jar --classname "dev.pulsarfunction.transit.TransitFunction" --dead-letter-topic "persistent://public/default/transitdead" --inputs "persistent://public/default/transcom,persistent://public/default/newjerseybus,persistent://public/default/newjerseylightrail,persistent://public/default/newjerseyrail" --log-topic "persistent://public/default/transitlog" --name TransitParser --namespace default --output "persistent://public/default/transitresult" --tenant public --max-message-retries 5
 
 
 ````
 
 ## references
 
+* https://github.com/tspannhw/FLiP-Transit
+* https://github.com/tspannhw/SmartTransit
