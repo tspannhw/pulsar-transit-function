@@ -1,23 +1,14 @@
 package dev.pulsarfunction.transit;
 
-import dev.pulsarfunction.transit.TransitFunction;
-import org.apache.pulsar.client.api.Message;
 import org.apache.pulsar.common.functions.FunctionConfig;
-import org.apache.pulsar.common.io.SourceConfig;
 import org.apache.pulsar.functions.LocalRunner;
-import org.junit.Assert;
-import org.junit.Test;
 import org.apache.pulsar.functions.api.Context;
+import org.junit.Test;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Optional;
-
 import static org.mockito.Mockito.mock;
-
-import org.apache.pulsar.functions.api.Record;
 
 public class TransitFunctionTest {
 
@@ -47,7 +38,6 @@ public class TransitFunctionTest {
      * @throws Exception
      */
         public static void main(String[] args) throws Exception {
-            //Collections.singleton("persistent://public/default/transcom")
             Collection<String> topics = new ArrayList<String>();
             topics.add("persistent://public/default/transcom");
             topics.add("persistent://public/default/newjerseybus");

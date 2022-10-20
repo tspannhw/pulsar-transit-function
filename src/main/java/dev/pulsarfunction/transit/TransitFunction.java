@@ -1,16 +1,13 @@
 package dev.pulsarfunction.transit;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import dev.pulsarfunction.transit.models.Chat;
 import dev.pulsarfunction.transit.models.Result;
 import dev.pulsarfunction.transit.models.Transcom;
 import dev.pulsarfunction.transit.models.Transit;
+import org.apache.pulsar.client.api.MessageId;
 import org.apache.pulsar.client.impl.schema.JSONSchema;
 import org.apache.pulsar.functions.api.Context;
 import org.apache.pulsar.functions.api.Function;
-import org.apache.pulsar.client.api.Schema;
-import org.apache.pulsar.functions.api.Context;
-import org.apache.pulsar.functions.api.Function;
+
 import java.util.Collection;
 import java.util.Optional;
 import java.util.UUID;
@@ -26,10 +23,6 @@ public class TransitFunction implements Function<byte[], Void> {
         if ( input == null) {
             return null;
         }
-
-        Collection<String> inputTopics = context.getInputTopics();
-
-        System.out.println("Inputtopics:"+ inputTopics.toString());
 
         String outputTopic = "persistent://public/default/transitresult";
 
@@ -55,6 +48,9 @@ public class TransitFunction implements Function<byte[], Void> {
             /* Total memory currently available to the JVM */
             context.getLogger().debug("Total memory available to JVM (bytes): " +
                     Runtime.getRuntime().totalMemory());
+
+            context.getLogger().debug("Function: " + context.getFunctionName() +
+                    "," + context.getOutputSchemaType().toString() );
         }
 
        TransitService transitService = new TransitService();
@@ -65,7 +61,9 @@ public class TransitFunction implements Function<byte[], Void> {
                 topicName = context.getCurrentRecord().getTopicName();
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            if ( context != null && context.getLogger() != null) {
+                context.getLogger().error("Can't get topic", e);
+            }
         }
 
         if (context != null && context.getLogger() != null && context.getLogger().isDebugEnabled()) {
@@ -78,7 +76,7 @@ public class TransitFunction implements Function<byte[], Void> {
             result = transitService.deserialize(input, topicName);
         } catch (Throwable e) {
             if ( context != null && context.getLogger() != null) {
-                context.getLogger().error(e.getLocalizedMessage());
+                context.getLogger().error("Can't deserialize", e);
             }
         }
 
@@ -91,28 +89,38 @@ public class TransitFunction implements Function<byte[], Void> {
 
         try {
             if ( context != null && context.getTenant() != null  && result != null) {
-
                 String theEventKey = UUID.randomUUID().toString();
 
                 if ( result.isTransit() ) {
-                    System.out.println("Sending Transit to " + result.getOutputTopic() + ":" +
-                            result.getTransit().toString());
-                    context.newOutputMessage(result.getOutputTopic(), JSONSchema.of(Transit.class))
+//                    System.out.println("Sending Transit to " + result.getOutputTopic() + ":" +
+//                            result.getTransit().toString());
+                    MessageId sendResult = context.newOutputMessage(result.getOutputTopic(), JSONSchema.of(Transit.class))
                             .key(theEventKey)
                             .property("language", "Java")
                             .property("processor", "transit")
                             .value(result.getTransit())
                             .send();
+
+                    if ( context.getLogger() != null  && context.getLogger().isDebugEnabled() ) {
+                        context.getLogger().debug("Transit Sent: "  + sendResult.toString() +
+                                " value: " + result.getTransit().getPubDate() + " to " +
+                                result.getOutputTopic());
+                    }
                 }
                 else {
-                    System.out.println("Sending Transcom to " + result.getOutputTopic() + ":" +
-                            result.getTranscom().toString());
-                    context.newOutputMessage(result.getOutputTopic(), JSONSchema.of(Transcom.class))
+//                    System.out.println("Sending Transcom to " + result.getOutputTopic() + ":" +
+//                            result.getTranscom().toString());
+                    MessageId sendResult = context.newOutputMessage(result.getOutputTopic(), JSONSchema.of(Transcom.class))
                             .key(theEventKey)
                             .property("language", "Java")
                             .property("processor", "transcom")
                             .value(result.getTranscom())
                             .send();
+                    if ( context.getLogger() != null  && context.getLogger().isDebugEnabled() ) {
+                        context.getLogger().debug("Transcom Sent: "  + sendResult.toString() +
+                                " value: " + result.getTransit().getPubDate() + " to " +
+                                result.getOutputTopic());
+                    }
                 }
             }
             else {
