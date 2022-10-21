@@ -21,7 +21,6 @@ bin/pulsar-admin functions create --auto-ack true --jar /opt/demo/java/pulsar-tr
 
 ````
 
-
 #### Status
 
 ````
@@ -80,7 +79,7 @@ presto:public/default> select __publish_time__, __key__, __producer_name__, serv
  2022-10-21 12:01:17.395 | 42fc9792-35d6-4023-8de8-c276419d939e | standalone-2-444  | transcom    | NYSDOT
  2022-10-21 12:01:17.404 | c544bbb9-17bf-4595-bc95-72a2ed682286 | standalone-2-444  | transcom    | NJ Tur
 
- 
+
 
 ````
 
@@ -225,3 +224,19 @@ from transit /*+ OPTIONS('scan.startup.mode' = 'earliest') */;
 
 * https://github.com/tspannhw/FLiP-Transit
 * https://github.com/tspannhw/SmartTransit
+
+
+#### Future Transportation Feeds
+
+* https://transport.rest/
+* https://developer.here.com/documentation/public-transit/dev_guide/index.html
+* https://new.mta.info/developers
+* https://developers.google.com/transit/gtfs-realtime/
+* https://gtfs.org/realtime/language-bindings/python/
+* http://bt.mta.info/wiki/Developers/SIRIIntro
+* https://www.mbta.com/developers/gtfs-realtime
+* https://developers.google.com/transit/gtfs-realtime/examples/java-sample
+* https://data.cityofnewyork.us/
+* https://dev.socrata.com/foundry/data.cityofnewyork.us/i4gi-tjb9
+* https://www3.septa.org/#/Real%20Time%20Data/NoMessageAlert
+* https://github.com/septadev/GTFS/releases
