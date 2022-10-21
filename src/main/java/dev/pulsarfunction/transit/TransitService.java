@@ -95,6 +95,7 @@ public class TransitService {
                     result.setOutputTopic(topicName + "-clean");
                 }
                 else {
+                    // should this just be /transit-clean
                     Transit transit = mapper.readValue(message, Transit.class);
                     result.setTopicName(topicName);
                     result.setRawString(message);
@@ -130,5 +131,25 @@ public class TransitService {
         else {
             return parseMessage(input, topicName.orElse("transcom"));
         }
+    }
+
+    public Transit combiner(Transcom transcom) {
+        Transit transit = new Transit();
+        if ( transcom == null ) {
+            return transit;
+        }
+
+        transit.setCompanyname("transcom");
+        transit.setServicename("transcom");
+        transit.setAdvisoryAlert(null);
+        transit.setDescription( transcom.getDescription());
+        transit.setGuid( transcom.getPoint() );
+        transit.setLink( "https://www.511nj.org/home" );
+        transit.setPubDate( transcom.getPubDate());
+        transit.setTitle( transcom.getTitle());
+        transit.setTs( transcom.getTs());
+        transit.setUuid( transcom.getUuid() );
+
+        return transit;
     }
 }

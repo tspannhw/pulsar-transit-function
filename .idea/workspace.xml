@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="710dd211-5ae0-4c52-8e17-c7299b1bf06e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/TransitFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/TransitFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/models/Chat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/TransitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/TransitService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/models/Transit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/models/Transit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/dev/pulsarfunction/transit/TransitFunctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dev/pulsarfunction/transit/TransitFunctionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,20 +45,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/tspann/Documents/code/pulsar-transit-function"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/tspann/Documents/code/pulsar-transit-function&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="dev.pulsarfunction.transit" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TransitFunctionTest">
+  <component name="RunManager" selected="JUnit.TransitFunctionTest.testTransitServiceCombiner">
     <configuration name="TransitFunctionTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dev.pulsarfunction.transit.TransitFunctionTest" />
       <module name="transit" />
@@ -86,8 +88,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TransitFunctionTest.testTransitServiceCombiner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="transit" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dev.pulsarfunction.transit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dev.pulsarfunction.transit" />
+      <option name="MAIN_CLASS_NAME" value="dev.pulsarfunction.transit.TransitFunctionTest" />
+      <option name="METHOD_NAME" value="testTransitServiceCombiner" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TransitFunctionTest.testTransitServiceCombiner" />
         <item itemvalue="Application.TransitFunctionTest" />
         <item itemvalue="JUnit.TransitFunctionTest.testTransitFunction" />
       </list>

@@ -4,6 +4,7 @@ import dev.pulsarfunction.transit.models.Result;
 import dev.pulsarfunction.transit.models.Transcom;
 import dev.pulsarfunction.transit.models.Transit;
 import org.apache.pulsar.client.api.MessageId;
+import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.client.impl.schema.JSONSchema;
 import org.apache.pulsar.functions.api.Context;
 import org.apache.pulsar.functions.api.Function;
@@ -16,6 +17,8 @@ import java.util.UUID;
  *
  */
 public class TransitFunction implements Function<byte[], Void> {
+
+    private static final String TRANSIT_TOPIC = "persistent://public/default/transit";
 
     /** PROCESS */
     @Override
@@ -88,6 +91,7 @@ public class TransitFunction implements Function<byte[], Void> {
         }
 
         try {
+            // or should I combine bus/rail/lightrail..?
             if ( context != null && context.getTenant() != null  && result != null) {
                 String theEventKey = UUID.randomUUID().toString();
 
@@ -103,9 +107,12 @@ public class TransitFunction implements Function<byte[], Void> {
 
                     if ( context.getLogger() != null  && context.getLogger().isDebugEnabled() ) {
                         context.getLogger().debug("Transit Sent: "  + sendResult.toString() +
-                                " value: " + result.getTransit().getPubDate() + " to " +
+                                " value: " + result.getTransit().getPubDate() +
+                                "," + result.getTransit().getServicename() + " to " +
                                 result.getOutputTopic());
                     }
+
+                    sendToTransit( result.getTransit(), context);
                 }
                 else {
 //                    System.out.println("Sending Transcom to " + result.getOutputTopic() + ":" +
@@ -121,7 +128,9 @@ public class TransitFunction implements Function<byte[], Void> {
                                 " value: " + result.getTransit().getPubDate() + " to " +
                                 result.getOutputTopic());
                     }
+                    sendToTransit( transitService.combiner(result.getTranscom()), context);
                 }
+
             }
             else {
                 if ( result != null) {
@@ -137,5 +146,32 @@ public class TransitFunction implements Function<byte[], Void> {
             }
         }
         return null;
+    }
+
+    /**
+     * send everything to transit
+     * @param transit
+     * @param context
+     */
+    private void sendToTransit(Transit transit, Context context) {
+        try {
+            MessageId sendResult = context.newOutputMessage(TRANSIT_TOPIC, JSONSchema.of(Transit.class))
+                    .key(transit.getUuid())
+                    .property("language", "Java")
+                    .property("processor", "transit")
+                    .value(transit)
+                    .send();
+
+            System.out.println("all Transit Sent: "  + sendResult.toString() +
+                    " value: " + transit.getPubDate()  + " service:" + transit.getServicename());
+
+            if ( context.getLogger() != null  && context.getLogger().isDebugEnabled() ) {
+                context.getLogger().debug("all Transit Sent: "  + sendResult.toString() +
+                        " value: " + transit.getPubDate() );
+            }
+        } catch (PulsarClientException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }

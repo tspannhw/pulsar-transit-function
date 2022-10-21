@@ -6,6 +6,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import java.util.StringJoiner;
 
+/**
+ *  * newjerseylightrail
+ *  * [ {
+ *  *   "title" : "Nov 19, 2021 02:28:25 PM",
+ *  *   "description" : "Newark Penn Station: Light Rail Escalator 35 Temporarily Out of Service – Effective Immediately",
+ *  *   "link" : "https://www.njtransit.com/node/1436941",
+ *  *   "guid" : "https://www.njtransit.com/node/1436941",
+ *  *   "advisoryAlert" : null,
+ *  *   "pubDate" : "Nov 19, 2021 02:28:25 PM",
+ *  *   "ts" : "1666142877790",
+ *  *   "companyname" : "newjersey",
+ *  *   "uuid" : "18d8d677-b0d5-43dd-953a-7a812904d4b0",
+ *  *   "servicename" : "lightrail"
+ *  * } ]
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Transit implements Serializable {
     private static final long serialVersionUID = 8L;
