@@ -10,7 +10,7 @@
 * Apache Maven
 * SDKMan
 
-#### Deploy Function (see script)
+#### Deploy Function (see script) 
 
 ````
 
@@ -25,6 +25,62 @@ bin/pulsar-admin functions create --auto-ack true --jar /opt/demo/java/pulsar-tr
 #### Status
 
 ````
+
+````
+
+#### Presto / Trino / Pulsar SQL
+
+````
+
+bin/pulsar sql
+use pulsar."public/default";
+
+presto:public/default> show tables;
+                Table
+-------------------------------------
+
+presto:public/default> describe transit;
+      Column       |   Type    | Extra |                                   Comment
+-------------------+-----------+-------+------------------------------------------------------------------
+ advisoryalert     | varchar   |       | ["null","string"]
+ companyname       | varchar   |       | ["null","string"]
+ description       | varchar   |       | ["null","string"]
+ guid              | varchar   |       | ["null","string"]
+ link              | varchar   |       | ["null","string"]
+ pubdate           | varchar   |       | ["null","string"]
+ servicename       | varchar   |       | ["null","string"]
+ title             | varchar   |       | ["null","string"]
+ ts                | varchar   |       | ["null","string"]
+ uuid              | varchar   |       | ["null","string"]
+ __partition__     | integer   |       | The partition number which the message belongs to
+ __event_time__    | timestamp |       | Application defined timestamp in milliseconds of when the event o
+ __publish_time__  | timestamp |       | The timestamp in milliseconds of when event as published
+ __message_id__    | varchar   |       | The message ID of the message used to generate this row
+ __sequence_id__   | bigint    |       | The sequence ID of the message used to generate this row
+ __producer_name__ | varchar   |       | The name of the producer that publish the message used to generat
+ __key__           | varchar   |       | The partition key for the topic
+ __properties__    | varchar   |       | User defined properties
+(18 rows)
+
+presto:public/default> select * from transit;
+
+presto:public/default> select __publish_time__, __key__, __producer_name__, servicename, description, title, ts, uuid, pubdate, link, guid from transit;
+    __publish_time__     |               __key__                | __producer_name__ | servicename |
+-------------------------+--------------------------------------+-------------------+-------------+-------
+ 2022-10-21 12:01:17.294 | ec632b86-d81b-4f97-96a3-86237f3e94f1 | standalone-2-444  | transcom    | NJ PAC
+ 2022-10-21 12:01:17.304 | eacbf7da-9a24-4a45-960a-bd1d065c03d9 | standalone-2-444  | transcom    | Barcla
+ 2022-10-21 12:01:17.314 | 73b5f73d-39c9-4c0b-ab49-e296465a09bd | standalone-2-444  | transcom    | NJ DOT
+ 2022-10-21 12:01:17.324 | 28e788e3-4722-4d11-9d04-7ce178c99cf3 | standalone-2-444  | transcom    | CT DOT
+ 2022-10-21 12:01:17.333 | f06c0b9a-29b0-4ab3-bda2-759539426089 | standalone-2-444  | transcom    | Barcla
+ 2022-10-21 12:01:17.345 | 7420ef47-b1ce-4495-bde9-d61b9e150148 | standalone-2-444  | transcom    | Barcla
+ 2022-10-21 12:01:17.354 | d3782d30-ce93-424f-9cf8-e9c858a594d1 | standalone-2-444  | transcom    | Barcla
+ 2022-10-21 12:01:17.364 | 4875b8dd-49b1-44b8-ae6c-4b392fd3f3bc | standalone-2-444  | transcom    | Barcla
+ 2022-10-21 12:01:17.374 | 2390bdd6-f858-4f7d-b86e-9bb99d0ab808 | standalone-2-444  | transcom    | NYSDOT
+ 2022-10-21 12:01:17.384 | cf7a733d-bb47-41db-9734-9578d1758011 | standalone-2-444  | transcom    | NJ PAC
+ 2022-10-21 12:01:17.395 | 42fc9792-35d6-4023-8de8-c276419d939e | standalone-2-444  | transcom    | NYSDOT
+ 2022-10-21 12:01:17.404 | c544bbb9-17bf-4595-bc95-72a2ed682286 | standalone-2-444  | transcom    | NJ Tur
+
+ 
 
 ````
 
@@ -141,6 +197,27 @@ UNION
 SELECT 'transcom' as servicename, description, title, pubDate,  ts
 FROM `transcom-clean` /*+ OPTIONS('scan.startup.mode' = 'earliest') */;
 
+
+describe `transit`;
+
++---------------+--------+------+-----+--------+-----------+
+|          name |   type | null | key | extras | watermark |
++---------------+--------+------+-----+--------+-----------+
+| advisoryAlert | STRING | true |     |        |           |
+|   companyname | STRING | true |     |        |           |
+|   description | STRING | true |     |        |           |
+|          guid | STRING | true |     |        |           |
+|          link | STRING | true |     |        |           |
+|       pubDate | STRING | true |     |        |           |
+|   servicename | STRING | true |     |        |           |
+|         title | STRING | true |     |        |           |
+|            ts | STRING | true |     |        |           |
+|          uuid | STRING | true |     |        |           |
++---------------+--------+------+-----+--------+-----------+
+10 rows in set
+
+select servicename, description, title, pubDate, ts, uuid, guid, link
+from transit /*+ OPTIONS('scan.startup.mode' = 'earliest') */;
 
 ````
 
