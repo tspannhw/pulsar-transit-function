@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Apache Pulsar - Websockets - Data Tables - Traffic and Weather Data</title>
+    <title>Apache Pulsar - Websockets - Data Tables - Transit and Weather Data</title>
     <link rel="stylesheet" type="text/css"  href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
@@ -12,22 +12,22 @@
 <table id="example" class="display" style="width:100%">
     <thead>
     <tr>
-        <th><b>Key</b></th>
+<th><b>Key</b></th>
         <th><b>Publish Time</b></th>
+        <th><b>Service</b></th>
         <th><b>Msg</b></th>
-        <th><b>Latitude</b></th>
-        <th><b>Longitude</b></th>
+        <th><b>Descr</b></th>
         <th><b>Pub Date</b></th>
         <th><b>System Time</b></th>
     </tr>
     </thead>
     <tfoot>
     <tr>
-        <th><b>Key</b></th>
+<th><b>Key</b></th>
         <th><b>Publish Time</b></th>
+        <th><b>Service</b></th>
         <th><b>Msg</b></th>
-        <th><b>Latitude</b></th>
-        <th><b>Longitude</b></th>
+        <th><b>Descr</b></th>
         <th><b>Pub Date</b></th>
         <th><b>System Time</b></th>
     </tr>
@@ -79,7 +79,7 @@ function IsJsonString(str) {
 $(document).ready(function() {
     var t = $('#example').DataTable();
 
-var wsUri = "ws://pulsar1:8080/ws/v2/consumer/persistent/public/default/transit/ts-reader?subscriptionType=Shared";
+var wsUri = "ws://pulsar1:8080/ws/v2/consumer/persistent/public/default/transit/ts2-reader?subscriptionType=Shared";
 websocket = new WebSocket(wsUri);
 websocket.onopen = function(evt) {
    console.log('open');
@@ -101,8 +101,8 @@ websocket.onmessage = function(evt) {
                  return;
          }
 
-         t.row.add( [ dataPoints.key, dataPoints.publishTime, pulsarMessage.title,
-                      pulsarMessage.latitude, pulsarMessage.longitude, pulsarMessage.pubDate,
+         t.row.add( [ dataPoints.key, dataPoints.publishTime, pulsarMessage.servicename,
+                      pulsarMessage.title, pulsarMessage.description, pulsarMessage.pubDate,
                       pulsarMessage.ts] ).draw(true );
        }
 };

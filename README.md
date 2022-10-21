@@ -10,6 +10,31 @@
 * Apache Maven
 * SDKMan
 
+
+#### Consume Raw NJ Transit and TRANSCOM Feeds
+
+* Apache NiFi (https://github.com/tspannhw/FLiP-Transit)
+
+https://www.datainmotion.dev/2021/01/flank-real-time-transit-information-for.html
+
+
+![NiFi0](https://1.bp.blogspot.com/-UEryo6V5aBQ/X_n0JdLIihI/AAAAAAAAcSY/fAEro2oxQ3sdJoPzTHPXgeZVJZb7rSP_ACLcBGAsYHQ/w640-h370/flow1.png)
+
+![NiFi1](https://1.bp.blogspot.com/-A5Otxw_i_So/X_n0JeXvd_I/AAAAAAAAcSU/t-_17LUmq-wmF4IGNSUnLmqRkV_dYaOHwCLcBGAsYHQ/w560-h819/flow2.png)
+
+![NiFi2](https://1.bp.blogspot.com/-q6fqFBPLVkc/X_n0JYzTRLI/AAAAAAAAcSc/CctjPWBS94Ydh9gBUaCOyn-jHN0gO1ksQCLcBGAsYHQ/w640-h294/flow3.png)
+
+
+
+#### Consume Messages
+
+````
+
+bin/pulsar-client consume "persistent://public/default/transit" -s ts-reader -n 0  --subscription-type "Shared" --subscription-position "Earliest" --subscription-mode "Durable" --schema-type "auto_consume"
+
+````
+
+
 #### Deploy Function (see script) 
 
 ````
