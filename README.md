@@ -18,11 +18,51 @@
 https://www.datainmotion.dev/2021/01/flank-real-time-transit-information-for.html
 
 
+![FLOW](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transitflow.jpg)
+
+
+![Transcomoverview](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transcomoverview.jpg)
+
+![TRANSCOM](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transcomcallflow.jpg)
+
+
 ![NiFi0](https://1.bp.blogspot.com/-UEryo6V5aBQ/X_n0JdLIihI/AAAAAAAAcSY/fAEro2oxQ3sdJoPzTHPXgeZVJZb7rSP_ACLcBGAsYHQ/w640-h370/flow1.png)
 
 ![NiFi1](https://1.bp.blogspot.com/-A5Otxw_i_So/X_n0JeXvd_I/AAAAAAAAcSU/t-_17LUmq-wmF4IGNSUnLmqRkV_dYaOHwCLcBGAsYHQ/w560-h819/flow2.png)
 
 ![NiFi2](https://1.bp.blogspot.com/-q6fqFBPLVkc/X_n0JYzTRLI/AAAAAAAAcSc/CctjPWBS94Ydh9gBUaCOyn-jHN0gO1ksQCLcBGAsYHQ/w640-h294/flow3.png)
+
+
+![NiFi3](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/NIFItoPulsar.jpg)
+
+![ROUTE](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/nifiroute.jpg)
+
+![REST](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/nifitransitrest.jpg)
+
+![TransComToPulsar](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transcomtopulsar.jpg)
+
+
+![Add Fields](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transitaddfields.jpg)
+
+
+![Data](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transitdata.jpg)
+
+
+
+![NiFiToPulsar](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/NIFItoPulsar.jpg)
+
+![Fields](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transcomaddfields.jpg)
+
+
+
+
+#### Pulsar Manager
+
+
+![NiFi2](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/pulsmantransittopic.jpg)
+
+![NiFi2](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/pulsarsqltransitdescr.jpg)
+![NiFi2](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transittopicdetails.jpg)
 
 
 
@@ -107,6 +147,24 @@ presto:public/default> select __publish_time__, __key__, __producer_name__, serv
 
 
 ````
+
+![PulsarSQLRun](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/pulsarsqllastrun.jpg)
+
+![PulsarSQLRun2](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/pulsarsqlclusteroverview.jpg)
+
+![PulsarSQLRun3](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/pulsarsql1.jpg)
+
+![PulsarSQLRun4](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/pulsarsql3.jpg)
+
+![PulsarSQLRun5](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/pulsarsqlquery.jpg)
+
+![PulsarSQLRun6](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transcompulsarsql.jpg)
+
+![DBeaver](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/pulsarsqlddldbeaver.jpg)
+
+![SQLPLAN](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/pulsarsqlplan.jpg()
+
+
 
 #### Flink SQL
 
@@ -244,6 +302,24 @@ select servicename, description, title, pubDate, ts, uuid, guid, link
 from transit /*+ OPTIONS('scan.startup.mode' = 'earliest') */;
 
 ````
+
+
+https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transcomflinkrow.jpg
+
+flinksqllightrail.jpg
+flinksqlpages.jpg
+flinksqlrail.jpg
+flinksqltransit.jpg
+
+
+#### HTML + JQuery + DataTables + Websockets -> Pulsar Toics
+
+![HTML1](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transitandweatherhtml.jpg)
+
+![HTML2](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transithtml1.jpg)
+
+![HTML3](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transithtml3.jpg)
+
 
 #### References
 
