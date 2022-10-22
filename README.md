@@ -61,7 +61,6 @@ https://www.datainmotion.dev/2021/01/flank-real-time-transit-information-for.htm
 
 ![NiFi2](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/pulsmantransittopic.jpg)
 
-![NiFi2](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/pulsarsqltransitdescr.jpg)
 ![NiFi2](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transittopicdetails.jpg)
 
 
@@ -164,6 +163,7 @@ presto:public/default> select __publish_time__, __key__, __producer_name__, serv
 
 ![SQLPLAN](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/pulsarsqlplan.jpg()
 
+![transit](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/pulsarsqltransitdescr.jpg)
 
 
 #### Flink SQL
