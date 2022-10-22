@@ -161,7 +161,7 @@ presto:public/default> select __publish_time__, __key__, __producer_name__, serv
 
 ![DBeaver](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/pulsarsqlddldbeaver.jpg)
 
-![SQLPLAN](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/pulsarsqlplan.jpg()
+![SQLPLAN](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/pulsarsqlplan.jpg)
 
 ![transit](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/pulsarsqltransitdescr.jpg)
 
