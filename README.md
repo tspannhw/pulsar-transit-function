@@ -344,3 +344,4 @@ from transit /*+ OPTIONS('scan.startup.mode' = 'earliest') */;
 * https://dev.socrata.com/foundry/data.cityofnewyork.us/i4gi-tjb9
 * https://www3.septa.org/#/Real%20Time%20Data/NoMessageAlert
 * https://github.com/septadev/GTFS/releases
+* https://github.com/tspannhw/pulsar-transit-function/blob/main/sources.md
