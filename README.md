@@ -304,12 +304,15 @@ from transit /*+ OPTIONS('scan.startup.mode' = 'earliest') */;
 ````
 
 
-https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transcomflinkrow.jpg
+![FLINK](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transcomflinkrow.jpg)
 
-flinksqllightrail.jpg
-flinksqlpages.jpg
-flinksqlrail.jpg
-flinksqltransit.jpg
+![FLINK](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/flinksqllightrail.jpg)
+
+![FLINK](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/flinksqlpages.jpg)
+
+![FLINK](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/flinksqlrail.jpg)
+
+![FLINK](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/flinksqltransit.jpg)
 
 
 #### HTML + JQuery + DataTables + Websockets -> Pulsar Toics
