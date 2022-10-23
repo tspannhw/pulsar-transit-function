@@ -71,6 +71,12 @@ https://www.datainmotion.dev/2021/01/flank-real-time-transit-information-for.htm
 
 bin/pulsar-client consume "persistent://public/default/transit" -s ts-reader -n 0  --subscription-type "Shared" --subscription-position "Earliest" --subscription-mode "Durable" --schema-type "auto_consume"
 
+
+----- got message -----
+key:[e5b94097-ac5a-4378-95a9-a8479e0a0cd2], properties:[language=Java, processor=transit], content:{companyname=transcom, advisoryAlert=NULL, link=https://www.511nj.org/home, description=TRANSCOM, Jersey City: hockey game on UBS Arena at (Hempstead) New York Islanders vs. Seattle Kraken, Tuesday February 7th, 2023, 07:30 PM thru 10:30 PM, guid=40.711673,-73.726249, servicename=transcom, title=UBS Arena :hockey game, pubDate=2022-08-16T10:42:45, uuid=e5b94097-ac5a-4378-95a9-a8479e0a0cd2, ts=1666291837242}
+----- got message -----
+key:[b778a1de-519a-4f60-bd34-c1b212784971], properties:[language=Java, processor=transit], content:{companyname=transcom, advisoryAlert=NULL, link=https://www.511nj.org/home, description=NYSDOT - Region 3: Construction , bridge work on NY 5 eastbound between I-481 SB Ramp (De Witt) and I-481 NB Ramp (De Witt) 1 Right lane of 2 lanes closed until 3:00 PM, guid=43.034178,-76.062942, servicename=transcom, title=NY 5 eastbound:Construction, pubDate=2022-10-20T09:00:06, uuid=b778a1de-519a-4f60-bd34-c1b212784971, ts=1666291837244}
+
 ````
 
 
