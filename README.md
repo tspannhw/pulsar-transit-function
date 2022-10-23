@@ -7,6 +7,7 @@
 * Mac OS Monterey 12.0.1
 * Ubuntu
 * Apache Pulsar 2.10.1
+* Java Pulsar Function
 * Apache Maven
 * SDKMan
 
@@ -85,7 +86,9 @@ key:[b778a1de-519a-4f60-bd34-c1b212784971], properties:[language=Java, processor
 ````
 
 bin/pulsar-admin functions stop --name TransitParser --namespace default --tenant public
+
 bin/pulsar-admin functions delete --name TransitParser --namespace default --tenant public
+
 bin/pulsar-admin functions create --auto-ack true --jar /opt/demo/java/pulsar-transit-function/target/transit-1.0.jar --classname "dev.pulsarfunction.transit.TransitFunction" --dead-letter-topic "persistent://public/default/transitdead" --inputs "persistent://public/default/transcom,persistent://public/default/newjerseybus,persistent://public/default/newjerseylightrail,persistent://public/default/newjerseyrail" --log-topic "persistent://public/default/transitlog" --name TransitParser --namespace default --output "persistent://public/default/transitresult" --tenant public --max-message-retries 5
 
 
@@ -270,7 +273,6 @@ presto:public/default> select __publish_time__, __key__, __producer_name__, serv
  2022-10-21 12:01:17.384 | cf7a733d-bb47-41db-9734-9578d1758011 | standalone-2-444  | transcom    | NJ PAC
  2022-10-21 12:01:17.395 | 42fc9792-35d6-4023-8de8-c276419d939e | standalone-2-444  | transcom    | NYSDOT
  2022-10-21 12:01:17.404 | c544bbb9-17bf-4595-bc95-72a2ed682286 | standalone-2-444  | transcom    | NJ Tur
-
 
 
 ````
