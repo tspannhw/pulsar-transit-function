@@ -94,6 +94,30 @@ bin/pulsar-admin functions create --auto-ack true --jar /opt/demo/java/pulsar-tr
 #### Status
 
 ````
+bin/pulsar-admin functions status --name TransitParser
+
+{
+  "numInstances" : 1,
+  "numRunning" : 1,
+  "instances" : [ {
+    "instanceId" : 0,
+    "status" : {
+      "running" : true,
+      "error" : "",
+      "numRestarts" : 0,
+      "numReceived" : 1421,
+      "numSuccessfullyProcessed" : 1421,
+      "numUserExceptions" : 0,
+      "latestUserExceptions" : [ ],
+      "numSystemExceptions" : 0,
+      "latestSystemExceptions" : [ ],
+      "averageLatency" : 13.630545629838124,
+      "lastInvocationTime" : 1666388452170,
+      "workerId" : "c-standalone-fw-127.0.0.1-8080"
+    }
+  } ]
+}
+r
 
 ````
 
@@ -107,6 +131,104 @@ use pulsar."public/default";
 presto:public/default> show tables;
                 Table
 -------------------------------------
+ transcom
+ transcom-clean
+ transit
+ transitlog
+
+
+describe "transcom-clean"
+                    -> ;
+      Column       |   Type    | Extra |                                   Comment
+-------------------+-----------+-------+------------------------------------------------------------------
+ description       | varchar   |       | ["null","string"]
+ latitude          | varchar   |       | ["null","string"]
+ longitude         | varchar   |       | ["null","string"]
+ point             | varchar   |       | ["null","string"]
+ pubdate           | varchar   |       | ["null","string"]
+ title             | varchar   |       | ["null","string"]
+ ts                | varchar   |       | ["null","string"]
+ uuid              | varchar   |       | ["null","string"]
+ __partition__     | integer   |       | The partition number which the message belongs to
+ __event_time__    | timestamp |       | Application defined timestamp in milliseconds of when the event o
+ __publish_time__  | timestamp |       | The timestamp in milliseconds of when event as published
+ __message_id__    | varchar   |       | The message ID of the message used to generate this row
+ __sequence_id__   | bigint    |       | The sequence ID of the message used to generate this row
+ __producer_name__ | varchar   |       | The name of the producer that publish the message used to generat
+ __key__           | varchar   |       | The partition key for the topic
+ __properties__    | varchar   |       | User defined properties
+
+
+
+describe "newjerseybus-clean";
+      Column       |   Type    | Extra |                                   Comment
+-------------------+-----------+-------+------------------------------------------------------------------
+ advisoryalert     | varchar   |       | ["null","string"]
+ companyname       | varchar   |       | ["null","string"]
+ description       | varchar   |       | ["null","string"]
+ guid              | varchar   |       | ["null","string"]
+ link              | varchar   |       | ["null","string"]
+ pubdate           | varchar   |       | ["null","string"]
+ servicename       | varchar   |       | ["null","string"]
+ title             | varchar   |       | ["null","string"]
+ ts                | varchar   |       | ["null","string"]
+ uuid              | varchar   |       | ["null","string"]
+ __partition__     | integer   |       | The partition number which the message belongs to
+ __event_time__    | timestamp |       | Application defined timestamp in milliseconds of when the event o
+ __publish_time__  | timestamp |       | The timestamp in milliseconds of when event as published
+ __message_id__    | varchar   |       | The message ID of the message used to generate this row
+ __sequence_id__   | bigint    |       | The sequence ID of the message used to generate this row
+ __producer_name__ | varchar   |       | The name of the producer that publish the message used to generat
+ __key__           | varchar   |       | The partition key for the topic
+ __properties__    | varchar   |       | User defined properties
+(18 rows)
+
+describe "newjerseyrail-clean";
+      Column       |   Type    | Extra |                                   Comment
+-------------------+-----------+-------+------------------------------------------------------------------
+ advisoryalert     | varchar   |       | ["null","string"]
+ companyname       | varchar   |       | ["null","string"]
+ description       | varchar   |       | ["null","string"]
+ guid              | varchar   |       | ["null","string"]
+ link              | varchar   |       | ["null","string"]
+ pubdate           | varchar   |       | ["null","string"]
+ servicename       | varchar   |       | ["null","string"]
+ title             | varchar   |       | ["null","string"]
+ ts                | varchar   |       | ["null","string"]
+ uuid              | varchar   |       | ["null","string"]
+ __partition__     | integer   |       | The partition number which the message belongs to
+ __event_time__    | timestamp |       | Application defined timestamp in milliseconds of when the event o
+ __publish_time__  | timestamp |       | The timestamp in milliseconds of when event as published
+ __message_id__    | varchar   |       | The message ID of the message used to generate this row
+ __sequence_id__   | bigint    |       | The sequence ID of the message used to generate this row
+ __producer_name__ | varchar   |       | The name of the producer that publish the message used to generat
+ __key__           | varchar   |       | The partition key for the topic
+ __properties__    | varchar   |       | User defined properties
+(18 rows)
+
+describe "newjerseylightrail-clean";
+      Column       |   Type    | Extra |                                   Comment
+-------------------+-----------+-------+------------------------------------------------------------------
+ advisoryalert     | varchar   |       | ["null","string"]
+ companyname       | varchar   |       | ["null","string"]
+ description       | varchar   |       | ["null","string"]
+ guid              | varchar   |       | ["null","string"]
+ link              | varchar   |       | ["null","string"]
+ pubdate           | varchar   |       | ["null","string"]
+ servicename       | varchar   |       | ["null","string"]
+ title             | varchar   |       | ["null","string"]
+ ts                | varchar   |       | ["null","string"]
+ uuid              | varchar   |       | ["null","string"]
+ __partition__     | integer   |       | The partition number which the message belongs to
+ __event_time__    | timestamp |       | Application defined timestamp in milliseconds of when the event o
+ __publish_time__  | timestamp |       | The timestamp in milliseconds of when event as published
+ __message_id__    | varchar   |       | The message ID of the message used to generate this row
+ __sequence_id__   | bigint    |       | The sequence ID of the message used to generate this row
+ __producer_name__ | varchar   |       | The name of the producer that publish the message used to generat
+ __key__           | varchar   |       | The partition key for the topic
+ __properties__    | varchar   |       | User defined properties
+(18 rows)
+
 
 presto:public/default> describe transit;
       Column       |   Type    | Extra |                                   Comment
