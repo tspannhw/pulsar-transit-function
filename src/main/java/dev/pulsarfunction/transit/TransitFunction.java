@@ -91,13 +91,10 @@ public class TransitFunction implements Function<byte[], Void> {
         }
 
         try {
-            // or should I combine bus/rail/lightrail..?
             if ( context != null && context.getTenant() != null  && result != null) {
                 String theEventKey = UUID.randomUUID().toString();
 
                 if ( result.isTransit() ) {
-//                    System.out.println("Sending Transit to " + result.getOutputTopic() + ":" +
-//                            result.getTransit().toString());
                     MessageId sendResult = context.newOutputMessage(result.getOutputTopic(), JSONSchema.of(Transit.class))
                             .key(theEventKey)
                             .property("language", "Java")
@@ -115,8 +112,6 @@ public class TransitFunction implements Function<byte[], Void> {
                     sendToTransit( result.getTransit(), context);
                 }
                 else {
-//                    System.out.println("Sending Transcom to " + result.getOutputTopic() + ":" +
-//                            result.getTranscom().toString());
                     MessageId sendResult = context.newOutputMessage(result.getOutputTopic(), JSONSchema.of(Transcom.class))
                             .key(theEventKey)
                             .property("language", "Java")
@@ -155,6 +150,13 @@ public class TransitFunction implements Function<byte[], Void> {
      */
     private void sendToTransit(Transit transit, Context context) {
         try {
+            if ( transit == null ) {
+                return;
+            }
+            NLPService nlpService = new NLPService(); // fix
+
+            transit.setGuid(nlpService.getNER(null, transit.getDescription()));
+
             MessageId sendResult = context.newOutputMessage(TRANSIT_TOPIC, JSONSchema.of(Transit.class))
                     .key(transit.getUuid())
                     .property("language", "Java")
@@ -163,7 +165,8 @@ public class TransitFunction implements Function<byte[], Void> {
                     .send();
 
             System.out.println("all Transit Sent: "  + sendResult.toString() +
-                    " value: " + transit.getPubDate()  + " service:" + transit.getServicename());
+                    " value: " + transit.getPubDate()  + " service:" + transit.getServicename() +
+                    " guid: " + transit.getGuid() + " :link:" + transit.getLink());
 
             if ( context.getLogger() != null  && context.getLogger().isDebugEnabled() ) {
                 context.getLogger().debug("all Transit Sent: "  + sendResult.toString() +

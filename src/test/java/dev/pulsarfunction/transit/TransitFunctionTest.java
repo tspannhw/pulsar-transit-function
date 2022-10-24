@@ -68,6 +68,12 @@ public class TransitFunctionTest {
     }
 
     @Test
+    public void testNL() {
+        NLPService nlp = new NLPService();
+        assertNotNull( nlp.getNER(null, "Tim Spann TRANSCOM, Jersey City in New Jersey, USA: football game on Michie Stadium at (Highlands) Air Force Vs Army on Route 100"));
+    }
+
+    @Test
     public void testTransitFunction() {
         TransitFunction func = new TransitFunction();
         func.process(JSON_STRING.getBytes(StandardCharsets.UTF_8), mock(Context.class));

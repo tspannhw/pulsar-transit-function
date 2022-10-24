@@ -454,6 +454,36 @@ from transit /*+ OPTIONS('scan.startup.mode' = 'earliest') */;
 ![HTML3](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transithtml3.jpg)
 
 
+#### TRANSCOM Data Notice
+
+````
+
+TRANSCOM is a coalition of 16 transportation and public safety agencies
+ in the New York - New Jersey - Connecticut metropolitan region. 
+It was created in 1986 to provide a cooperative, coordinated approach to 
+regional transportation management.This is a free service that allows 
+various user groups (i.e. the general public, commercial vendors, 
+transportation agencies, researchers, media and others) to access 
+TRANSCOM real-time event and link (travel time) data for use in their 
+applications. The data feed contains 'real-time' event information 
+provided by member agencies of 
+TRANSCOM listed below:
+
+TRANSCOM Member Agencies
+Connecticut Department of TransportationMetropolitan Transportation AuthorityMTA – Bridges and TunnelsMTA – New York City TransitNew Jersey Department of TransportationNew Jersey TransitNew York City Department of TransportationNew York City Police DepartmentNew York State Bridge AuthorityNew York State Department of TransportationNew York State PoliceNew York State Thruway AuthorityPort Authority Trans-Hudson Corp (PATH)The Port Authority of New York and New Jersey
+Register for Access
+For full access to the documentation and data please register.After your registration has been processed you will have access to the full sites content!For organizations, we request that you only request a single account for all users, and share this information internally. If there are valid reasons for multiple accounts, please explain the circumstances in the comments section of the registration form. Please ensure you have included the domain data.xcmdata.org on any SPAM filters exceptions so you will receive the confirmations and any announcements. Duplicate requests will be ignored - if you have questions use the link below!To register for accessClick here
+
+
+https://data.xcmdata.org/DEWeb/Pages/index
+
+````
+
+#### Apply NLP / ML / Named Entity Recognition to Text
+
+* Adding OpenNLP 2.0.0
+* Future thoughts on ONNX and Pytorch via OpenNLP DL
+
 #### References
 
 * https://github.com/tspannhw/FLiP-Transit

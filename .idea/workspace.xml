@@ -4,18 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="710dd211-5ae0-4c52-8e17-c7299b1bf06e" name="Changes" comment="" />
+    <list default="true" id="58093442-1390-4d43-95a7-f0e7df9170f9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/flows/Transit_Pulsar.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/en-chunker.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/en-ner-date.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/en-ner-location.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/en-ner-money.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/en-ner-organization.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/en-ner-percentage.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/en-ner-person.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/en-parser-chunking.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/en-pos-maxent.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/en-pos-perceptron.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/en-sent.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/en-token.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/NLPService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/TransitFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/TransitFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dev/pulsarfunction/transit/TransitFunctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dev/pulsarfunction/transit/TransitFunctionTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,28 +45,32 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2GMjlmIRkWVCha3NfKNy9jqnEDm" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2GaoFG9agl67dn4TW9XmhCgpOwC" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/tspann/Documents/code/pulsar-transit-function&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/tspann/Documents/code/pulsar-transit-function"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="dev.pulsarfunction.transit" />
-    </key>
-  </component>
-  <component name="RunManager" selected="JUnit.TransitFunctionTest.testTransitServiceCombiner">
+}]]></component>
+  <component name="RunManager" selected="Application.TransitFunctionTest">
+    <configuration name="NLPService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dev.pulsarfunction.transit.NLPService" />
+      <module name="transit" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dev.pulsarfunction.transit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TransitFunctionTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dev.pulsarfunction.transit.TransitFunctionTest" />
       <module name="transit" />
@@ -65,7 +84,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TransitFunctionTest.testTransitFunction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TransitFunctionTest.testNL" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="transit" />
       <extension name="coverage">
         <pattern>
@@ -75,23 +94,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="dev.pulsarfunction.transit" />
       <option name="MAIN_CLASS_NAME" value="dev.pulsarfunction.transit.TransitFunctionTest" />
-      <option name="METHOD_NAME" value="testTransitFunction" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TransitFunctionTest.testTransitServiceCombiner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="transit" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dev.pulsarfunction.transit.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="dev.pulsarfunction.transit" />
-      <option name="MAIN_CLASS_NAME" value="dev.pulsarfunction.transit.TransitFunctionTest" />
-      <option name="METHOD_NAME" value="testTransitServiceCombiner" />
+      <option name="METHOD_NAME" value="testNL" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -99,35 +102,21 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TransitFunctionTest.testTransitServiceCombiner" />
         <item itemvalue="Application.TransitFunctionTest" />
-        <item itemvalue="JUnit.TransitFunctionTest.testTransitFunction" />
+        <item itemvalue="JUnit.TransitFunctionTest.testNL" />
+        <item itemvalue="Application.NLPService" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="710dd211-5ae0-4c52-8e17-c7299b1bf06e" name="Changes" comment="" />
-      <created>1666205499594</created>
+      <changelist id="58093442-1390-4d43-95a7-f0e7df9170f9" name="Changes" comment="" />
+      <created>1666635949929</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1666205499594</updated>
+      <updated>1666635949929</updated>
     </task>
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
