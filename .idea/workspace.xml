@@ -5,27 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58093442-1390-4d43-95a7-f0e7df9170f9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/flows/Transit_Pulsar.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/en-chunker.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/en-ner-date.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/en-ner-location.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/en-ner-money.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/en-ner-organization.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/en-ner-percentage.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/en-ner-person.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/en-parser-chunking.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/en-pos-maxent.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/en-pos-perceptron.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/en-sent.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/en-token.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/NLPService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/NLPService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/NLPService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/TransitFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/TransitFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dev/pulsarfunction/transit/TransitFunctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dev/pulsarfunction/transit/TransitFunctionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

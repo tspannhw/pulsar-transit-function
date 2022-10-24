@@ -1,35 +1,28 @@
 package dev.pulsarfunction.transit;
 
+import opennlp.tools.namefind.NameFinderME;
+import opennlp.tools.namefind.TokenNameFinderModel;
+import opennlp.tools.tokenize.TokenizerME;
+import opennlp.tools.tokenize.TokenizerModel;
+import opennlp.tools.util.Span;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.StringJoiner;
 
-import com.fasterxml.jackson.databind.exc.InvalidFormatException;
-
-import opennlp.tools.namefind.NameFinderME;
-import opennlp.tools.namefind.TokenNameFinderModel;
-import opennlp.tools.sentdetect.SentenceDetectorME;
-import opennlp.tools.sentdetect.SentenceModel;
-import opennlp.tools.tokenize.TokenizerME;
-import opennlp.tools.tokenize.TokenizerModel;
-import opennlp.tools.util.Span;
-
 public class NLPService {
-
     private static final Logger log = LoggerFactory.getLogger(NLPService.class);
 
     // Public Vars
     public static final String CURRENT_DIR = "/Users/tspann/Documents/code/pulsar-transit-function/models/";
-    public static final String CURRENT_FILE =  "/en-ner-person.bin";
+//    public static final String CURRENT_FILE =  "/en-ner-person.bin";
     public static final String CURRENT_TOKEN_FILE =  "/en-token.bin";
     public static final String CURRENT_LOCATION_FILE = "/en-ner-location.bin";
-    public static final String CURRENT_DATE_FILE = "/en-ner-date.bin";
-    public static final String CURRENT_ORGANIZATION_FILE = "/en-ner-organization.bin";
+//    public static final String CURRENT_DATE_FILE = "/en-ner-date.bin";
+//    public static final String CURRENT_ORGANIZATION_FILE = "/en-ner-organization.bin";
 
     /**
      * getNER
@@ -60,10 +53,8 @@ public class NLPService {
 
             String tokens[] = tokenizer.tokenize(sentence);
 
-            //Loading the NER-person model
             InputStream inputStreamNameFinder = new
                     FileInputStream(CURRENT_DIR + CURRENT_LOCATION_FILE );
-            //CURRENT_FILE);
             TokenNameFinderModel model = new TokenNameFinderModel(inputStreamNameFinder);
 
             //Instantiating the NameFinderME class
@@ -90,7 +81,6 @@ public class NLPService {
      * @param args
      */
     public static void main(String[] args) {
-        System.out.println("OpenNlp");
         NLPService nlp = new NLPService();
         System.out.println("Locations:" + nlp.getNER(null, "Tim Spann TRANSCOM, Jersey City in New Jersey, USA: football game on Michie Stadium at (Highlands) Air Force Vs Army on Route 100"));
     }

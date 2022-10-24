@@ -481,7 +481,8 @@ https://data.xcmdata.org/DEWeb/Pages/index
 
 #### Apply NLP / ML / Named Entity Recognition to Text
 
-* Adding OpenNLP 2.0.0
+* Added OpenNLP 2.0.0
+* For Transit topic records, added the results of OpenNLP 2.0's Named Entity Resolution NLP for Locations using the English 1.5.0 model.
 * Future thoughts on ONNX and Pytorch via OpenNLP DL
 
 #### References
