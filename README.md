@@ -485,6 +485,13 @@ https://data.xcmdata.org/DEWeb/Pages/index
 * For Transit topic records, added the results of OpenNLP 2.0's Named Entity Resolution NLP for Locations using the English 1.5.0 model.
 * Future thoughts on ONNX and Pytorch via OpenNLP DL
 
+````
+
+all Transit Sent: 231603:1746:0:0 value: Oct 24, 2022 10:43:43 AM service:bus guid: Plateau Avenue, Central Avenue, Fort Lee, Edgewater Road, Palisades Avenue, Main Street, Lemoine Avenue/Palisades Avenue, Edgewater Road, Anderson Avenue 
+
+
+````
+
 #### References
 
 * https://github.com/tspannhw/FLiP-Transit
