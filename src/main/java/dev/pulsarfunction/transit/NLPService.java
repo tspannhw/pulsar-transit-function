@@ -17,7 +17,7 @@ public class NLPService {
     private static final Logger log = LoggerFactory.getLogger(NLPService.class);
 
     // Public Vars
-    public static final String CURRENT_DIR = "/Users/tspann/Documents/code/pulsar-transit-function/models/";
+    public static final String CURRENT_DIR = "models/";
 //    public static final String CURRENT_FILE =  "/en-ner-person.bin";
     public static final String CURRENT_TOKEN_FILE =  "/en-token.bin";
     public static final String CURRENT_LOCATION_FILE = "/en-ner-location.bin";

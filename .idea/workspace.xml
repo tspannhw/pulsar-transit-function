@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58093442-1390-4d43-95a7-f0e7df9170f9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/NLPService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/NLPService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/TransitFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/TransitFunction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +37,7 @@
     "last_opened_file_path": "/Users/tspann/Documents/code/pulsar-transit-function"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.TransitFunctionTest">
+  <component name="RunManager" selected="Application.NLPService">
     <configuration name="NLPService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dev.pulsarfunction.transit.NLPService" />
       <module name="transit" />
@@ -84,9 +82,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.NLPService" />
         <item itemvalue="Application.TransitFunctionTest" />
         <item itemvalue="JUnit.TransitFunctionTest.testNL" />
-        <item itemvalue="Application.NLPService" />
       </list>
     </recent_temporary>
   </component>
