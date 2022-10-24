@@ -17,6 +17,7 @@
         <th><b>Service</b></th>
         <th><b>Msg</b></th>
         <th><b>Descr</b></th>
+        <th><b>Loc</b></th>
         <th><b>Pub Date</b></th>
         <th><b>System Time</b></th>
     </tr>
@@ -28,6 +29,7 @@
         <th><b>Service</b></th>
         <th><b>Msg</b></th>
         <th><b>Descr</b></th>
+        <th><b>Loc</b></th>
         <th><b>Pub Date</b></th>
         <th><b>System Time</b></th>
     </tr>
@@ -101,8 +103,13 @@ websocket.onmessage = function(evt) {
                  return;
          }
 
+        var tempString = " " ;
+        if ( !isEmpty(pulsarMessage.guid) ) {
+               tempString  = pulsarMessage.guid;
+        }
+
          t.row.add( [ dataPoints.key, dataPoints.publishTime, pulsarMessage.servicename,
-                      pulsarMessage.title, pulsarMessage.description, pulsarMessage.pubDate,
+                      pulsarMessage.title, pulsarMessage.description, tempString, pulsarMessage.pubDate,
                       pulsarMessage.ts] ).draw(true );
        }
 };
