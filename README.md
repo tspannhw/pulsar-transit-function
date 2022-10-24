@@ -492,6 +492,12 @@ all Transit Sent: 231603:1746:0:0 value: Oct 24, 2022 10:43:43 AM service:bus gu
 
 ````
 
+![HTML](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transithtml.jpg)
+
+![HTML2](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transithtml2.jpg)
+
+![HTML4](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transithtml4.jpg)
+
 #### References
 
 * https://github.com/tspannhw/FLiP-Transit
