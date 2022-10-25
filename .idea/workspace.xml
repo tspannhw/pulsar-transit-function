@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58093442-1390-4d43-95a7-f0e7df9170f9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/transitweather.html" beforeDir="false" afterPath="$PROJECT_DIR$/transitweather.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/TransitFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/TransitFunction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,13 +31,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/tspann/Documents/code/pulsar-transit-function"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/tspann/Documents/code/pulsar-transit-function&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.TransitFunctionTest">
     <configuration name="NLPService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dev.pulsarfunction.transit.NLPService" />

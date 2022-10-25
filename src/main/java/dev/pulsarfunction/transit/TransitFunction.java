@@ -164,9 +164,9 @@ public class TransitFunction implements Function<byte[], Void> {
                     .value(transit)
                     .send();
 
-            System.out.println("Transit: "  + sendResult.toString() +
-                    " value: " + transit.getPubDate()  + " service:" + transit.getServicename() +
-                    " guid: " + transit.getGuid() + ":link:" + transit.getLink());
+//            System.out.println("Transit: "  + sendResult.toString() +
+//                    " value: " + transit.getPubDate()  + " service:" + transit.getServicename() +
+//                    " guid: " + transit.getGuid() + ":link:" + transit.getLink());
 
             if ( context.getLogger() != null  && context.getLogger().isDebugEnabled() ) {
                 context.getLogger().debug("Transit: "  + sendResult.toString() +
