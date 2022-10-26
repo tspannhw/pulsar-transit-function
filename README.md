@@ -492,6 +492,22 @@ all Transit Sent: 231603:1746:0:0 value: Oct 24, 2022 10:43:43 AM service:bus gu
 
 ````
 
+#### Consume
+
+````
+
+bin/pulsar-client consume "persistent://public/default/transit" -s ts-reader -n 0  --subscription-type "Shared" --subscription-position "Earliest" --subscription-mode "Durable" --schema-type "auto_consume"
+
+----- got message -----
+key:[9153a42c-010d-41ef-88ac-bf1b1ec3c258], properties:[language=Java, processor=transit], content:{companyname=transcom, advisoryAlert=NULL, link=https://www.511nj.org/home, description=NYSDOT - Region 2: construction on NY 13 both directions between I-90; on Ramp (Lenox) and Village of Canastota; Town of Lenox (Lenox)  More specifically between NYS Thruway Exit 34 and Warners Road. Motorists will encounter lane closures in both directions with a temporary signal in place, Continuous Monday April 12th, 2021 7:00 AM thru Wednesday November 30th, 2022 5:30 PM, guid=Canastota, servicename=transcom, title=NY 13 both directions:construction, pubDate=2022-09-30T07:01:48, uuid=9153a42c-010d-41ef-88ac-bf1b1ec3c258, ts=1666388173654}
+----- got message -----
+key:[efcd44ac-dd09-476a-b9f1-883bf83c1c34], properties:[language=Java, processor=transit], content:{companyname=transcom, advisoryAlert=NULL, link=https://www.511nj.org/home, description=NYSDOT - Region 11: construction on I-278 eastbound from Atlantic Avenue (New York) to Exit 28B - Brooklyn Bridge (New York) Lane Reduction, Continuous Monday August 30th, 2021 12:00 AM thru Saturday December 31st, 2022 11:59 PM 1 Left lane of 4 lanes closed, guid=Atlantic Avenue, New York, New York, servicename=transcom, title=I-278 eastbound:construction, pubDate=2021-10-04T09:54:58, uuid=efcd44ac-dd09-476a-b9f1-883bf83c1c34, ts=1666388173649}
+
+````
+
+#### HTML Dashboard
+
+
 ![HTML](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transithtml.jpg)
 
 ![HTML2](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transithtml2.jpg)

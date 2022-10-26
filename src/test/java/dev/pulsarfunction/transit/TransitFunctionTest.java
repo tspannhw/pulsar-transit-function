@@ -63,7 +63,6 @@ public class TransitFunctionTest {
         assertEquals(transit.getCompanyname(),"transcom");
         assertEquals(transcom.getPubDate(), transit.getPubDate());
         assertEquals(transcom.getTitle(), transit.getTitle());
-
         //System.out.println("transit: " + transit.toString());
     }
 

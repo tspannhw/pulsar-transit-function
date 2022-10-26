@@ -9,9 +9,7 @@ import java.util.StringJoiner;
  * @author tspann
  */
 public class Result implements Serializable {
-
     private boolean isTransit;
-
     public Result(boolean isTransit, String topicName, Transcom transcom, Transit transit, String rawString, byte[] rawInput, String extraInfo, Throwable error) {
         super();
         this.isTransit = isTransit;
