@@ -17,7 +17,7 @@ public class NLPService {
     private static final Logger log = LoggerFactory.getLogger(NLPService.class);
 
     // Public Vars
-    public static final String CURRENT_DIR = "models/";
+   // public static final String CURRENT_DIR = "models/";
 //    public static final String CURRENT_FILE =  "/en-ner-person.bin";
     public static final String CURRENT_TOKEN_FILE =  "/en-token.bin";
     public static final String CURRENT_LOCATION_FILE = "/en-ner-location.bin";
@@ -26,19 +26,19 @@ public class NLPService {
 
     /**
      * getNER
-     * @param modelDirectory
      * @param sentence
      * @return String
      */
-    public String getNER(String modelDirectory, String sentence) {
+    public String getNER(String sentence) {
         if ( sentence == null ) {
             return null;
         }
         InputStream inputStreamTokenizer = null;
         try {
-            inputStreamTokenizer = new
-                    FileInputStream(CURRENT_DIR + CURRENT_TOKEN_FILE);
-        } catch (FileNotFoundException e) {
+//            inputStreamTokenizer = new
+//                    FileInputStream(CURRENT_DIR + CURRENT_TOKEN_FILE);
+            inputStreamTokenizer = getClass().getResourceAsStream(CURRENT_TOKEN_FILE);
+        } catch (Throwable e) {
            e.printStackTrace();
            return null;
         }
@@ -53,8 +53,10 @@ public class NLPService {
 
             String tokens[] = tokenizer.tokenize(sentence);
 
-            InputStream inputStreamNameFinder = new
-                    FileInputStream(CURRENT_DIR + CURRENT_LOCATION_FILE );
+            //InputStream inputStreamNameFinder = new
+             //       FileInputStream(CURRENT_DIR + CURRENT_LOCATION_FILE );
+            InputStream inputStreamNameFinder = getClass().getResourceAsStream(CURRENT_LOCATION_FILE);
+
             TokenNameFinderModel model = new TokenNameFinderModel(inputStreamNameFinder);
 
             //Instantiating the NameFinderME class
@@ -82,6 +84,6 @@ public class NLPService {
      */
     public static void main(String[] args) {
         NLPService nlp = new NLPService();
-        System.out.println("Locations:" + nlp.getNER(null, "Tim Spann TRANSCOM, Jersey City in New Jersey, USA: football game on Michie Stadium at (Highlands) Air Force Vs Army on Route 100"));
+        System.out.println("Locations:" + nlp.getNER("Tim Spann TRANSCOM, Jersey City in New Jersey, USA: football game on Michie Stadium at (Highlands) Air Force Vs Army on Route 100"));
     }
 }

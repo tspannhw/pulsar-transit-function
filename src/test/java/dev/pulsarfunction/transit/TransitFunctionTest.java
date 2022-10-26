@@ -70,7 +70,7 @@ public class TransitFunctionTest {
     @Test
     public void testNL() {
         NLPService nlp = new NLPService();
-        assertNotNull( nlp.getNER(null, "Tim Spann TRANSCOM, Jersey City in New Jersey, USA: football game on Michie Stadium at (Highlands) Air Force Vs Army on Route 100"));
+        assertNotNull( nlp.getNER("Tim Spann TRANSCOM, Jersey City in New Jersey, USA: football game on Michie Stadium at (Highlands) Air Force Vs Army on Route 100"));
     }
 
     @Test

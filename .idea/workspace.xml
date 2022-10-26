@@ -5,8 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58093442-1390-4d43-95a7-f0e7df9170f9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/en-chunker.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/en-ner-date.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/en-ner-location.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/en-ner-money.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/en-ner-organization.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/en-ner-percentage.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/en-ner-person.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/en-parser-chunking.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/en-pos-maxent.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/en-pos-perceptron.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/en-sent.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/en-token.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/en-chunker.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/en-ner-date.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/en-ner-location.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/en-ner-money.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/en-ner-organization.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/en-ner-percentage.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/en-ner-person.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/en-parser-chunking.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/en-pos-maxent.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/en-pos-perceptron.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/en-sent.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/en-token.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/NLPService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/NLPService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/TransitFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/TransitFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dev/pulsarfunction/transit/TransitFunctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dev/pulsarfunction/transit/TransitFunctionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,18 +54,22 @@
     </option>
   </component>
   <component name="ProjectId" id="2GaoFG9agl67dn4TW9XmhCgpOwC" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/tspann/Documents/code/pulsar-transit-function&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/tspann/Documents/code/pulsar-transit-function"
   }
-}</component>
-  <component name="RunManager" selected="Application.TransitFunctionTest">
+}]]></component>
+  <component name="RunManager" selected="JUnit.TransitFunctionTest.testNL">
     <configuration name="NLPService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dev.pulsarfunction.transit.NLPService" />
       <module name="transit" />
@@ -83,9 +114,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TransitFunctionTest" />
-        <item itemvalue="Application.NLPService" />
         <item itemvalue="JUnit.TransitFunctionTest.testNL" />
+        <item itemvalue="Application.NLPService" />
+        <item itemvalue="Application.TransitFunctionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -99,5 +130,19 @@
       <updated>1666635949929</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

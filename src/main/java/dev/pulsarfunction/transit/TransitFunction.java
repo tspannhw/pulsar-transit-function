@@ -155,7 +155,7 @@ public class TransitFunction implements Function<byte[], Void> {
             }
             NLPService nlpService = new NLPService(); // fix
 
-            transit.setGuid(nlpService.getNER(null, transit.getDescription()));
+            transit.setGuid(nlpService.getNER(transit.getDescription()));
 
             MessageId sendResult = context.newOutputMessage(TRANSIT_TOPIC, JSONSchema.of(Transit.class))
                     .key(transit.getUuid())
