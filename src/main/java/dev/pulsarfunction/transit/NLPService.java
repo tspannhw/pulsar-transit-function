@@ -17,13 +17,8 @@ public class NLPService {
     private static final Logger log = LoggerFactory.getLogger(NLPService.class);
 
     // Public Vars
-   // public static final String CURRENT_DIR = "models/";
-//    public static final String CURRENT_FILE =  "/en-ner-person.bin";
     public static final String CURRENT_TOKEN_FILE =  "/en-token.bin";
     public static final String CURRENT_LOCATION_FILE = "/en-ner-location.bin";
-//    public static final String CURRENT_DATE_FILE = "/en-ner-date.bin";
-//    public static final String CURRENT_ORGANIZATION_FILE = "/en-ner-organization.bin";
-
     /**
      * getNER
      * @param sentence
@@ -35,8 +30,6 @@ public class NLPService {
         }
         InputStream inputStreamTokenizer = null;
         try {
-//            inputStreamTokenizer = new
-//                    FileInputStream(CURRENT_DIR + CURRENT_TOKEN_FILE);
             inputStreamTokenizer = getClass().getResourceAsStream(CURRENT_TOKEN_FILE);
         } catch (Throwable e) {
            e.printStackTrace();
@@ -53,8 +46,6 @@ public class NLPService {
 
             String tokens[] = tokenizer.tokenize(sentence);
 
-            //InputStream inputStreamNameFinder = new
-             //       FileInputStream(CURRENT_DIR + CURRENT_LOCATION_FILE );
             InputStream inputStreamNameFinder = getClass().getResourceAsStream(CURRENT_LOCATION_FILE);
 
             TokenNameFinderModel model = new TokenNameFinderModel(inputStreamNameFinder);
