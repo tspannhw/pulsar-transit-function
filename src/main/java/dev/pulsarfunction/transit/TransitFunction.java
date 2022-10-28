@@ -14,7 +14,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 /**
- *
+ * Transit Serverless Application
  */
 public class TransitFunction implements Function<byte[], Void> {
 
@@ -31,9 +31,7 @@ public class TransitFunction implements Function<byte[], Void> {
 
         if (context != null && context.getLogger() != null && context.getLogger().isDebugEnabled()) {
             context.getLogger().debug("LOG:" + input.toString());
-
             System.setProperty("org.slf4j.simpleLogger.logFile", "System.out");
-
             context.getLogger().debug("Available processors (cores): " +
                     Runtime.getRuntime().availableProcessors());
 
@@ -57,7 +55,6 @@ public class TransitFunction implements Function<byte[], Void> {
         }
 
        TransitService transitService = new TransitService();
-
         Optional<String> topicName = null;
         try {
             if ( context != null  && context.getCurrentRecord() != null) {
@@ -83,24 +80,17 @@ public class TransitFunction implements Function<byte[], Void> {
             }
         }
 
-        if ( result != null ) {
-            if ( context != null && context.getLogger() != null) {
-                context.getLogger().debug("TRANSIT:" + result.isTransit());
-                context.getLogger().debug("Result:" + result.toString());
-            }
-        }
-
         try {
             if ( context != null && context.getTenant() != null  && result != null) {
                 String theEventKey = UUID.randomUUID().toString();
 
                 if ( result.isTransit() ) {
                     MessageId sendResult = context.newOutputMessage(result.getOutputTopic(), JSONSchema.of(Transit.class))
-                            .key(theEventKey)
-                            .property("language", "Java")
-                            .property("processor", "transit")
-                            .value(result.getTransit())
-                            .send();
+                                .key(theEventKey)
+                                .property("language", "Java")
+                                .property("processor", "transit")
+                                .value(result.getTransit())
+                                .send();
 
                     if ( context.getLogger() != null  && context.getLogger().isDebugEnabled() ) {
                         context.getLogger().debug("Transit Sent: "  + sendResult.toString() +
@@ -109,13 +99,22 @@ public class TransitFunction implements Function<byte[], Void> {
                                 result.getOutputTopic());
                     }
 
-                    sendToTransit( result.getTransit(), context);
+                    sendToTransit(result.getTransit(), context);
                 }
                 else {
+                    NLPService nlpService = new NLPService();
+                    String location = nlpService.getNER(result.getTranscom().getDescription());
+                    if ( location == null || location.trim().length() <= 0) {
+                        location = "";
+                    }
+
                     MessageId sendResult = context.newOutputMessage(result.getOutputTopic(), JSONSchema.of(Transcom.class))
                             .key(theEventKey)
                             .property("language", "Java")
                             .property("processor", "transcom")
+                            .property("location", location)
+                            .property("latitude", result.getTranscom().getLatitude())
+                            .property("longitude", result.getTranscom().getLongitude())
                             .value(result.getTranscom())
                             .send();
                     if ( context.getLogger() != null  && context.getLogger().isDebugEnabled() ) {
@@ -153,20 +152,20 @@ public class TransitFunction implements Function<byte[], Void> {
             if ( transit == null ) {
                 return;
             }
-            NLPService nlpService = new NLPService(); // fix
-
-            transit.setGuid(nlpService.getNER(transit.getDescription()));
+            NLPService nlpService = new NLPService();
+            String location = nlpService.getNER(transit.getDescription());
+            if ( location == null || location.trim().length() <= 0) {
+                location = "";
+            }
+            transit.setGuid(location);
 
             MessageId sendResult = context.newOutputMessage(TRANSIT_TOPIC, JSONSchema.of(Transit.class))
                     .key(transit.getUuid())
                     .property("language", "Java")
                     .property("processor", "transit")
+                    .property( "location", "")
                     .value(transit)
                     .send();
-
-//            System.out.println("Transit: "  + sendResult.toString() +
-//                    " value: " + transit.getPubDate()  + " service:" + transit.getServicename() +
-//                    " guid: " + transit.getGuid() + ":link:" + transit.getLink());
 
             if ( context.getLogger() != null  && context.getLogger().isDebugEnabled() ) {
                 context.getLogger().debug("Transit: "  + sendResult.toString() +
@@ -175,6 +174,5 @@ public class TransitFunction implements Function<byte[], Void> {
         } catch (PulsarClientException e) {
             throw new RuntimeException(e);
         }
-
     }
 }

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <!-- include leaflet css and javascript -->
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+     integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+     crossorigin=""/>
+      <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+     integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+     crossorigin=""></script>
+
+    <style type="text/css">
+        #map {
+            height: 400px;
+        }
+    </style>
+    <title>Apache Pulsar - Transit Data NJ/NY/CT/PA - Map</title>
+</head>
+<body bgcolor="white" text="black">
+<img data-v-c612f5f2="" alt="StreamNative Logo" src="https://streamnative.io/assets/static/sn-logo-vertical-dark.c516648.a34f97839dee38e7499aa0c21d0b2255.png" width="543" data-src="https://streamnative.io/assets/static/sn-logo-vertical-dark.c516648.a34f97839dee38e7499aa0c21d0b2255.png" data-srcset="https://streamnative.io/assets/static/sn-logo-vertical-dark.c516648.a34f97839dee38e7499aa0c21d0b2255.png 543w" data-sizes="(max-width: 543px) 100vw, 543px" class="w-56 mt-4 md:mt-0 g-image g-image--lazy g-image--loaded" srcset="https://streamnative.io/assets/static/sn-logo-vertical-dark.c516648.a34f97839dee38e7499aa0c21d0b2255.png 543w" sizes="(max-width: 543px) 100vw, 543px">
+
+<br>
+<div id="map"></div>
+<script type="text/javascript">
+
+function isEmpty(val){
+    return (val === undefined || val == null || val.length <= 0) ? true : false;
+}
+function IsJsonString(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
+
+    const incidentIcon =  L.icon({
+        iconUrl: "./images/blue-dot.png",
+        className: "image-icon",
+        iconSize: [10, 10]
+    });
+
+    const carIcon = L.icon({
+        iconUrl: "./images/car-icon-side-9.jpeg",
+        className: "image-icon",
+        iconSize: [30, 30]
+    });
+
+    var map = null;
+    var marker = null;
+    var ws = new WebSocket("ws://localhost:8080/ws/v2/consumer/persistent/public/default/transcom-clean/tsc1-reader?subscriptionType=Shared&receiverQueueSize=250");
+
+    ws.onmessage = function(event) {
+    	var dataPoints = JSON.parse(event.data);
+
+		if ( dataPoints === undefined || dataPoints == null || dataPoints.payload === undefined || dataPoints.payload == null ) {
+	            return;
+	    }
+
+	    // acknowledge the message from the topic
+	    if (ws.readyState === WebSocket.OPEN) {
+	        ws.send("{\"messageId\": \"" + dataPoints.messageId + "\"}");
+	    }
+        
+        //console.log('open map data:' + dataPoints);
+
+	    if (IsJsonString(atob(dataPoints.payload))) {
+	         var pulsarMessage = JSON.parse(atob(dataPoints.payload));
+	         if ( pulsarMessage === undefined || pulsarMessage == null ) {
+	                 return;
+	         }
+
+	        if (map == null) {
+	            map = L.map('map').setView([pulsarMessage.latitude, pulsarMessage.longitude], 10);
+	            L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+	                attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+	            }).addTo(map);
+
+	            let marker = new L.marker(['40.268059', '-74.529091'], { icon: incidentIcon }).addTo(map);
+	        }
+
+	        marker = new L.marker([pulsarMessage.latitude, pulsarMessage.longitude]).addTo(map);
+
+	        marker.bindPopup('<strong>' + 
+	        	pulsarMessage.title + 
+	        	'</strong></br>' + 
+	        	pulsarMessage.description + 
+	        	'<br><strong>Published: &nbsp; </strong>' +
+	        	pulsarMessage.pubDate +
+	        	'<br><strong>Latitude/Longitude:</strong> &nbsp; ' + pulsarMessage.latitude + ',' + 
+	        	pulsarMessage.longitude); 
+    	}
+    };
+
+    ws.onerror = function(event) {
+        console.log(`Error ${event}`);
+    }
+</script>
+
+<br><br><br>
+&copy; 2022.   Tim Spann.  FLiPN Stack.   
+</body>
+</html>

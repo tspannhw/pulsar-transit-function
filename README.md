@@ -518,6 +518,11 @@ key:[efcd44ac-dd09-476a-b9f1-883bf83c1c34], properties:[language=Java, processor
 
 * https://github.com/tspannhw/FLiP-Transit
 * https://github.com/tspannhw/SmartTransit
+* https://github.com/david-streamlio/GottaEat-UI/blob/83e3b0a02dea0cd445074fd544fe520651f29978/driver-tracker-websocket/src/main/resources/META-INF/resources/driver-tracker.html  
+* https://leafletjs.com/ 
+* https://www.baeldung.com/geolocation-by-ip-with-maxmind 
+* https://ssimpkin.github.io/dhsite2017/adding-data-to-leaflet/#adding-pop-ups
+* https://stand-with-ukraine.pp.ua/
 
 
 #### Future Transportation Feeds
