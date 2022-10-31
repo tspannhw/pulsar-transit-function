@@ -1,6 +1,16 @@
 #### pulsar-transit-function
 
+
 Using the FLiPN Stack to ingest, route, enrich, transform, analyze, act on and display real-time transit information from various transit sources including TRANSCOM and NJ Transit.
+
+![Overview](https://miro.medium.com/max/1400/1*qLQMB1bu8ZOmVFxExB45lA.jpeg)
+
+
+![Transit](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transit.jpg)
+
+For details on how to build your own:   https://medium.com/@tspann/transit-watch-real-time-feeds-d98ff62b3bbb
+
+![FLOW](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transitflow.jpg)
 
 
 #### Developer Workspace
@@ -13,6 +23,9 @@ Using the FLiPN Stack to ingest, route, enrich, transform, analyze, act on and d
 * Java Pulsar Function
 * Apache Maven
 * SDKMan
+
+![map4](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/map1.jpeg)
+
 
 
 #### Consume Raw NJ Transit and TRANSCOM Feeds
@@ -517,6 +530,17 @@ key:[efcd44ac-dd09-476a-b9f1-883bf83c1c34], properties:[language=Java, processor
 
 ![HTML4](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transithtml4.jpg)
 
+#### Maps (LeafletJS - Slava Ukraini)
+
+![map1](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/map1.jpg)
+
+![map2](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/map2.jpg)
+
+![map22](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/map2.jpeg)
+
+![map3](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/map3.jpeg)
+
+
 #### References
 
 * https://github.com/tspannhw/FLiP-Transit
@@ -543,3 +567,5 @@ key:[efcd44ac-dd09-476a-b9f1-883bf83c1c34], properties:[language=Java, processor
 * https://www3.septa.org/#/Real%20Time%20Data/NoMessageAlert
 * https://github.com/septadev/GTFS/releases
 * https://github.com/tspannhw/pulsar-transit-function/blob/main/sources.md
+
+@copy; 2022 Timothy Spann - FLiPN Stack
