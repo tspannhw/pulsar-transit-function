@@ -81,7 +81,7 @@ function IsJsonString(str) {
 $(document).ready(function() {
     var t = $('#example').DataTable();
 
-var wsUri = "ws://pulsar1:8080/ws/v2/consumer/persistent/public/default/transit/ts2-reader?subscriptionType=Shared";
+var wsUri = "ws://localhost:8080/ws/v2/consumer/persistent/public/default/transit/ts2-reader?subscriptionType=Shared";
 websocket = new WebSocket(wsUri);
 websocket.onopen = function(evt) {
    console.log('open');
@@ -119,7 +119,7 @@ websocket.onmessage = function(evt) {
 $(document).ready(function() {
     var t2 = $('#weather').DataTable();
 
-var wsUri2 = "ws://pulsar1:8080/ws/v2/consumer/persistent/public/default/weather/weatherreader?subscriptionType=Shared&receiverQueueSize=5000";
+var wsUri2 = "ws://localhost:8080/ws/v2/consumer/persistent/public/default/weather/weatherreader?subscriptionType=Shared&receiverQueueSize=5000";
 
 websocket2 = new WebSocket(wsUri2);
 websocket2.onopen = function(evt) {

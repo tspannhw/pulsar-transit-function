@@ -1,5 +1,8 @@
 #### pulsar-transit-function
 
+Using the FLiPN Stack to ingest, route, enrich, transform, analyze, act on and display real-time transit information from various transit sources including TRANSCOM and NJ Transit.
+
+
 #### Developer Workspace
 
 * JDK 8 and 17

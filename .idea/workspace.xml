@@ -5,31 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58093442-1390-4d43-95a7-f0e7df9170f9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/FgB-VgfakAQT_o8.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/blue-dot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/car-icon-side-9.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livemap.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pagerunner.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transitmap.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/TransitFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/TransitFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/TransitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/TransitService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/models/Transit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/models/Transit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/en-chunker.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/en-ner-date.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/en-ner-location.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/en-ner-location.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/en-ner-money.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/en-ner-organization.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/en-ner-percentage.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/en-ner-person.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/en-parser-chunking.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/en-pos-maxent.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/en-pos-perceptron.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/en-sent.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/en-token.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/en-token.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transitmap.html" beforeDir="false" afterPath="$PROJECT_DIR$/transitmap.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transitweather.html" beforeDir="false" afterPath="$PROJECT_DIR$/transitweather.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
