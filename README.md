@@ -6,7 +6,7 @@ Using the FLiPN Stack to ingest, route, enrich, transform, analyze, act on and d
 ![Overview](https://miro.medium.com/max/1400/1*qLQMB1bu8ZOmVFxExB45lA.jpeg)
 
 
-![Transit](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transit.jpg)
+![Transit](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transit.png)
 
 For details on how to build your own:   https://medium.com/@tspann/transit-watch-real-time-feeds-d98ff62b3bbb
 
