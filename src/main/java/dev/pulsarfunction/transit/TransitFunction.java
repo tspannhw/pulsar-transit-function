@@ -163,7 +163,7 @@ public class TransitFunction implements Function<byte[], Void> {
                     .key(transit.getUuid())
                     .property("language", "Java")
                     .property("processor", "transit")
-                    .property( "location", "")
+                    .property( "location",location)
                     .value(transit)
                     .send();
 

@@ -311,6 +311,44 @@ presto:public/default> select __publish_time__, __key__, __producer_name__, serv
 
 ![transit](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/pulsarsqltransitdescr.jpg)
 
+#### Get a topic's schema
+
+````
+
+bin/pulsar-admin schemas get persistent://public/default/transit
+
+...
+
+        {
+          "name": "uuid",
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      ]
+    },
+    "type": "JSON",
+    "properties": {
+      "__alwaysAllowNull": "true",
+      "__jsr310ConversionEnabled": "false"
+    }
+  }
+}
+
+````
+
+
+![FlinkPulsarConnector](https://hub.streamnative.io/static/hub/images/data-processing/pulsar-flink-connector.png)
+
+#### Flink SQL Run Setup
+
+# startall.sh
+# run.sh
+# conf/sql
+# conf/flink
+# sqllib/
+# sqllib/
 
 #### Flink SQL
 
@@ -322,11 +360,65 @@ CREATE CATALOG pulsar WITH (
    'format' = 'json'
 );
 
+# 1.15.0
+
+CREATE CATALOG pulsar WITH (
+   'type' = 'pulsar-catalog',
+   'catalog-service-url' = 'pulsar://localhost:6650',
+   'catalog-admin-url' = 'http://localhost:8080'
+);
+
+SHOW CURRENT DATABASE;
+SHOW DATABASES;
+
 USE CATALOG pulsar;
 
 set table.dynamic-table-options.enabled = true;
 
+show databases;
++------------------+
+|    database name |
++------------------+
+| default_database |
+|          kop/kop |
+|   public/__kafka |
+|   public/default |
+| public/functions |
+|    pulsar/system |
+|       sample/ns1 |
++------------------+
+7 rows in set
+
+use `public/default`;
+
+
+# 1.13
+
+USE CATALOG pulsar;
+
+set table.dynamic-table-options.enabled = true;
+
+### All
+
 SHOW TABLES;
+
+describe `transit`;
+
++---------------+--------+------+-----+--------+-----------+
+|          name |   type | null | key | extras | watermark |
++---------------+--------+------+-----+--------+-----------+
+| advisoryAlert | STRING | TRUE |     |        |           |
+|   companyname | STRING | TRUE |     |        |           |
+|   description | STRING | TRUE |     |        |           |
+|          guid | STRING | TRUE |     |        |           |
+|          link | STRING | TRUE |     |        |           |
+|       pubDate | STRING | TRUE |     |        |           |
+|   servicename | STRING | TRUE |     |        |           |
+|         title | STRING | TRUE |     |        |           |
+|            ts | STRING | TRUE |     |        |           |
+|          uuid | STRING | TRUE |     |        |           |
++---------------+--------+------+-----+--------+-----------+
+10 rows in set
 
 describe `transcom-clean`;
 +-------------+--------+------+-----+--------+-----------+
@@ -426,28 +518,13 @@ SELECT 'transcom' as servicename, description, title, pubDate,  ts
 FROM `transcom-clean` /*+ OPTIONS('scan.startup.mode' = 'earliest') */;
 
 
-describe `transit`;
-
-+---------------+--------+------+-----+--------+-----------+
-|          name |   type | null | key | extras | watermark |
-+---------------+--------+------+-----+--------+-----------+
-| advisoryAlert | STRING | true |     |        |           |
-|   companyname | STRING | true |     |        |           |
-|   description | STRING | true |     |        |           |
-|          guid | STRING | true |     |        |           |
-|          link | STRING | true |     |        |           |
-|       pubDate | STRING | true |     |        |           |
-|   servicename | STRING | true |     |        |           |
-|         title | STRING | true |     |        |           |
-|            ts | STRING | true |     |        |           |
-|          uuid | STRING | true |     |        |           |
-+---------------+--------+------+-----+--------+-----------+
-10 rows in set
 
 select servicename, description, title, pubDate, ts, uuid, guid, link
 from transit /*+ OPTIONS('scan.startup.mode' = 'earliest') */;
 
 ````
+
+For new connector see https://github.com/streamnative/flink-example/blob/main/sql-examples/sql-example.md
 
 
 ![FLINK](https://github.com/tspannhw/pulsar-transit-function/blob/main/images/transcomflinkrow.jpg)
@@ -550,6 +627,8 @@ key:[efcd44ac-dd09-476a-b9f1-883bf83c1c34], properties:[language=Java, processor
 * https://www.baeldung.com/geolocation-by-ip-with-maxmind 
 * https://ssimpkin.github.io/dhsite2017/adding-data-to-leaflet/#adding-pop-ups
 * https://stand-with-ukraine.pp.ua/
+* https://hub.streamnative.io/data-processing/pulsar-flink/1.15.0.1/
+* https://repo1.maven.org/maven2/io/streamnative/connectors/flink-sql-connector-pulsar/1.15.0.2/
 
 
 #### Future Transportation Feeds
