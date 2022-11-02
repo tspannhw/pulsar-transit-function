@@ -343,20 +343,37 @@ bin/pulsar-admin schemas get persistent://public/default/transit
 
 #### Flink SQL Run Setup
 
-# startall.sh
+##### startall.sh
+    
+    Start the Flink cluster
 
-# run.sh
+##### stopall.sh
 
-# conf
+    Stop the Flink cluster
 
+##### prerun.sh
+
+    Set a JDK 8 from SDKMan
+
+##### run.sh
+
+    Run the SQL Client CLI
+
+##### conf
+
+    * flink-conf.yaml
+    * sql-client-conf.yaml
 
 # sqllib/flink-sql-avro-1.15.2.jar
     
     Download this
+    * https://mvnrepository.com/artifact/org.apache.flink/flink-sql-avro
 
 # sqllib/flink-sql-connector-pulsar-1.15.0.2.jar
 
-    Download this
+    Download this.   
+    * https://hub.streamnative.io/data-processing/pulsar-flink/1.15.1.1
+    * https://repo1.maven.org/maven2/io/streamnative/connectors/flink-sql-connector-pulsar/
 
 #### Flink SQL
 
