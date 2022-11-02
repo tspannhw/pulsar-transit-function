@@ -344,11 +344,19 @@ bin/pulsar-admin schemas get persistent://public/default/transit
 #### Flink SQL Run Setup
 
 # startall.sh
+
 # run.sh
-# conf/sql
-# conf/flink
-# sqllib/
-# sqllib/
+
+# conf
+
+
+# sqllib/flink-sql-avro-1.15.2.jar
+    
+    Download this
+
+# sqllib/flink-sql-connector-pulsar-1.15.0.2.jar
+
+    Download this
 
 #### Flink SQL
 
