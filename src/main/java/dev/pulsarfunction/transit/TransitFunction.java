@@ -11,6 +11,7 @@ import org.apache.pulsar.functions.api.Function;
 
 import java.util.Collection;
 import java.util.Optional;
+import java.util.StringJoiner;
 import java.util.UUID;
 
 /**
@@ -83,12 +84,18 @@ public class TransitFunction implements Function<byte[], Void> {
         try {
             if ( context != null && context.getTenant() != null  && result != null) {
                 String theEventKey = UUID.randomUUID().toString();
+                NLPService nlpService = new NLPService();
 
                 if ( result.isTransit() ) {
+                    String location = nlpService.getNER(result.getTransit().getDescription());
+                    if ( location == null || location.trim().length() <= 0) {
+                        location = "";
+                    }
                     MessageId sendResult = context.newOutputMessage(result.getOutputTopic(), JSONSchema.of(Transit.class))
                                 .key(theEventKey)
                                 .property("language", "Java")
                                 .property("processor", "transit")
+                                .property("location",location)
                                 .value(result.getTransit())
                                 .send();
 
@@ -99,20 +106,23 @@ public class TransitFunction implements Function<byte[], Void> {
                                 result.getOutputTopic());
                     }
 
-                    sendToTransit(result.getTransit(), context);
+                    sendToTransit(result.getTransit(), context, location);
                 }
                 else {
-                    NLPService nlpService = new NLPService();
                     String location = nlpService.getNER(result.getTranscom().getDescription());
                     if ( location == null || location.trim().length() <= 0) {
                         location = "";
                     }
+                    StringJoiner joinedLocation = new StringJoiner(", ","","");
+                    joinedLocation.add(location);
+                    joinedLocation.add(result.getTranscom().getLatitude());
+                    joinedLocation.add(result.getTranscom().getLongitude());
 
                     MessageId sendResult = context.newOutputMessage(result.getOutputTopic(), JSONSchema.of(Transcom.class))
                             .key(theEventKey)
                             .property("language", "Java")
                             .property("processor", "transcom")
-                            .property("location", location)
+                            .property("location", joinedLocation.toString())
                             .property("latitude", result.getTranscom().getLatitude())
                             .property("longitude", result.getTranscom().getLongitude())
                             .value(result.getTranscom())
@@ -122,7 +132,7 @@ public class TransitFunction implements Function<byte[], Void> {
                                 " value: " + result.getTransit().getPubDate() + " to " +
                                 result.getOutputTopic());
                     }
-                    sendToTransit( transitService.combiner(result.getTranscom()), context);
+                    sendToTransit( transitService.combiner(result.getTranscom()), context, location);
                 }
 
             }
@@ -147,15 +157,10 @@ public class TransitFunction implements Function<byte[], Void> {
      * @param transit
      * @param context
      */
-    private void sendToTransit(Transit transit, Context context) {
+    private void sendToTransit(Transit transit, Context context, String location) {
         try {
             if ( transit == null ) {
                 return;
-            }
-            NLPService nlpService = new NLPService();
-            String location = nlpService.getNER(transit.getDescription());
-            if ( location == null || location.trim().length() <= 0) {
-                location = "";
             }
             transit.setGuid(location);
 

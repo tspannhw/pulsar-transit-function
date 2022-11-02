@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="58093442-1390-4d43-95a7-f0e7df9170f9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/TransitFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/pulsarfunction/transit/TransitFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dev/pulsarfunction/transit/TransitFunctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dev/pulsarfunction/transit/TransitFunctionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +43,7 @@
     &quot;last_opened_file_path&quot;: &quot;/Users/tspann/Documents/code/pulsar-transit-function&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.NLPService">
+  <component name="RunManager" selected="JUnit.TransitFunctionTest.testTransitFunction">
     <configuration name="NLPService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dev.pulsarfunction.transit.NLPService" />
       <module name="transit" />
@@ -86,8 +86,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TransitFunctionTest.testTransitFunction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="transit" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dev.pulsarfunction.transit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dev.pulsarfunction.transit" />
+      <option name="MAIN_CLASS_NAME" value="dev.pulsarfunction.transit.TransitFunctionTest" />
+      <option name="METHOD_NAME" value="testTransitFunction" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TransitFunctionTest.testTransitFunction" />
         <item itemvalue="Application.NLPService" />
         <item itemvalue="JUnit.TransitFunctionTest.testNL" />
         <item itemvalue="Application.TransitFunctionTest" />

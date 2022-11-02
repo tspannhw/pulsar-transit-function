@@ -100,7 +100,7 @@ public class TransitFunctionTest {
                     .build();
 
             LocalRunner localRunner = LocalRunner.builder()
-                    .brokerServiceUrl("pulsar://pulsar1:6650")
+                    .brokerServiceUrl("pulsar://localhost:6650")
                     .functionConfig(functionConfig)
                     .build();
 
